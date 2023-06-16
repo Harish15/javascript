@@ -202,5 +202,11 @@ console.log(res1);
 // 2: "Filter"
 let res2 = array.filter((e,i)=>array.indexOf(e)===i);
 console.log(res2);
+//3: set
+const uniqueElements = (array) => {
+  const set = new Set();
+  return array.filter((e) => !set.has(e) && set.add(e));
+};
+console.log(uniqueElements(array));
 
 //********************************************************************************************************************************//
