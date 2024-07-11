@@ -147,6 +147,36 @@ const arrayManipulate = (arr) => {
 
 console.log(arrayManipulate(InputArr));
 
+//Approach 2 with faster execution
+const arrayManipulate = (arr) => {
+  if (arr.length === 0) return [];
+
+  // Find the minimum and maximum 'p' values
+  let min = arr[0].p;
+  let max = arr[0].p;
+  let pSet = new Set();
+
+  arr.forEach(obj => {
+    min = Math.min(min, obj.p);
+    max = Math.max(max, obj.p);
+    pSet.add(obj.p);
+  });
+
+  let result = [];
+  for (let i = min; i <= max; i++) {
+    if (pSet.has(i)) {
+      result.push({ p: i });
+    } else {
+      result.push({});
+    }
+  }
+
+  return result;
+};
+
+console.log(arrayManipulate(InputArr));
+
+
 //********************************************************************************************************************************//
 
 // 7. Expected Output: [{id:1,name:["a","d"]},{id:2,name:"b"},{id:3,name:["c","e"]}
